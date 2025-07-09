@@ -33,7 +33,7 @@ const HeroSection = ({ onContactClick }) => {
         ref={imageRef}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=7360&q=80')`
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://drive.google.com/file/d/1IPtR4qOk5fmigkK-K9Fyy63V2P6pXytz/view?usp=sharing')`
         }}
       />
       
