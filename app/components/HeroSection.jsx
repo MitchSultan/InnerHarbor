@@ -27,33 +27,28 @@ const HeroSection = ({ onContactClick }) => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section ref={heroRef} className=" bg-amber-300 h-screen flex items-center justify-center overflow-hidden bg-[url('/images/bn.jpeg')] bg-cover bg-center relative">
       {/* Background Image */}
-      <div 
-        ref={imageRef}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://drive.google.com/file/d/1IPtR4qOk5fmigkK-K9Fyy63V2P6pXytz/view?usp=sharing')`
-        }}
-      />
+      
       
       {/* Content */}
-      <div ref={textRef} className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+      <div ref={textRef} className="relative z-10 text-center text-black px-6 max-w-4xl mx-auto bgimage-[url('/images/bn.jpeg')]">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
           Inner Harbor Resort
         </h1>
-        <p className="text-xl md:text-2xl mb-4 text-blue-100">
+        <img></img>
+        <p className="text-xl md:text-2xl mb-4 text-black">
           Discover tranquility by the lakeside
         </p>
         <div className="flex items-center justify-center space-x-2 mb-8">
           <MapPin className="h-5 w-5 text-blue-300" />
-          <span className="text-lg text-blue-100">Nestled beside crystal-clear waters</span>
+          <span className="text-lg text-black">Nestled beside crystal-clear waters</span>
         </div>
         <div className="flex items-center justify-center space-x-1 mb-8">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
           ))}
-          <span className="ml-2 text-blue-100">Premium Lake Resort Experience</span>
+          <span className="ml-2 text-black">Premium Lake Resort Experience</span>
         </div>
         <button
           onClick={onContactClick}
