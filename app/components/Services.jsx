@@ -25,7 +25,7 @@ export default function Services() {
                 <div className="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl">
                   <img
                     alt=""
-                    src="https://www.pinterest.com/pin/1091771134666728652/"
+                    src="/images/rupa.jpeg"
                     className="size-full object-cover object-top"
                   />
                 </div>
@@ -45,7 +45,7 @@ export default function Services() {
               <div className="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
                 <img
                   alt=""
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
+                  src="/images/tourist.jpeg"
                   className="w-full max-lg:max-w-xs"
                 />
               </div>
@@ -64,8 +64,8 @@ export default function Services() {
               <div className="@container flex flex-1 items-center max-lg:py-6 lg:pb-2">
                 <img
                   alt=""
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-security.png"
-                  className="h-[min(152px,40cqw)] object-cover"
+                  src="/images/security.jpeg"
+                  className="h-auto object-cover"
                 />
               </div>
             </div>

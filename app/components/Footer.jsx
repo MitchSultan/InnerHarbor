@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8 lg:pt-24">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div>
-              <div className="flex justify-center text-teal-600 sm:justify-start">
+             {/* <div className="flex justify-center text-teal-600 sm:justify-start">
                 <svg
                   className="h-8"
                   viewBox="0 0 118 24"
@@ -55,11 +55,10 @@ export default function Footer() {
                     fill="currentColor"
                   />
                 </svg>
-              </div>
+              </div>*/}
 
               <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Incidunt consequuntur amet culpa cum itaque neque.
+                Inner Harbor resort is family-owned and provides quality accommodations with a touch of excellent meals. Your kids also have a place to enjoy and go on boat rides while you dine
               </p>
 
               <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
@@ -186,7 +185,7 @@ export default function Footer() {
                       className="text-gray-700 transition hover:text-gray-700/75"
                       href="#"
                     >
-                      Company History
+                      Resort History
                     </a>
                   </li>
 
@@ -204,19 +203,11 @@ export default function Footer() {
                       className="text-gray-700 transition hover:text-gray-700/75"
                       href="#"
                     >
-                      Employee Handbook
+                      Location
                     </a>
                   </li>
 
-                  <li>
-                    <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="#"
-                    >
-                      {" "}
-                      Careers{" "}
-                    </a>
-                  </li>
+                  
                 </ul>
               </div>
 
@@ -231,7 +222,7 @@ export default function Footer() {
                       className="text-gray-700 transition hover:text-gray-700/75"
                       href="#"
                     >
-                      Web Development
+                      Fine Dining
                     </a>
                   </li>
 
@@ -240,8 +231,7 @@ export default function Footer() {
                       className="text-gray-700 transition hover:text-gray-700/75"
                       href="#"
                     >
-                      {" "}
-                      Web Design{" "}
+                      Accommodations
                     </a>
                   </li>
 
@@ -250,8 +240,7 @@ export default function Footer() {
                       className="text-gray-700 transition hover:text-gray-700/75"
                       href="#"
                     >
-                      {" "}
-                      Marketing{" "}
+                      Kids Fun
                     </a>
                   </li>
 
@@ -260,8 +249,7 @@ export default function Footer() {
                       className="text-gray-700 transition hover:text-gray-700/75"
                       href="#"
                     >
-                      {" "}
-                      Google Ads{" "}
+                      Events
                     </a>
                   </li>
                 </ul>
@@ -289,7 +277,7 @@ export default function Footer() {
                       href="#"
                     >
                       {" "}
-                      Support{" "}
+                      Help{" "}
                     </a>
                   </li>
 
@@ -299,7 +287,7 @@ export default function Footer() {
                       href="#"
                     >
                       <span className="text-gray-700 transition group-hover:text-gray-700/75">
-                        Live Chat
+                        Book a Room
                       </span>
 
                       <span className="relative flex size-2">
@@ -335,7 +323,7 @@ export default function Footer() {
                         />
                       </svg>
 
-                      <span className="flex-1 text-gray-700">john@doe.com</span>
+                      <span className="flex-1 text-gray-700">innerharborresort@gmail.com</span>
                     </a>
                   </li>
 
@@ -359,7 +347,7 @@ export default function Footer() {
                         />
                       </svg>
 
-                      <span className="flex-1 text-gray-700">0123456789</span>
+                      <span className="flex-1 text-gray-700">+254703666366</span>
                     </a>
                   </li>
 
@@ -385,7 +373,7 @@ export default function Footer() {
                     </svg>
 
                     <address className="-mt-0.5 flex-1 text-gray-700 not-italic">
-                      213 Lane, London, United Kingdom
+Baharini, Eldoret
                     </address>
                   </li>
                 </ul>
@@ -416,7 +404,7 @@ export default function Footer() {
               </p>
 
               <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-                &copy; 2025 Inner Harbor Resort
+                &copy; 2025 Inner Harbor Resort <a href="https://mitchel.vercel.app" target="_blank" className="hover:text-amber-400"> Made by Mitch</a>
               </p>
             </div>
           </div>

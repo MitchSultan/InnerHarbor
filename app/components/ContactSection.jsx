@@ -36,7 +36,7 @@ const ContactSection = ({ onWhatsAppClick }) => {
       <div className="container mx-auto px-6">
         <div ref={ctaRef} className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            Ready for Your Lake Adventure?
+            Ready for Your Next Adventure?
           </h2>
           
           <p className="text-xl text-gray-600 mb-12 leading-relaxed">
@@ -48,7 +48,7 @@ const ContactSection = ({ onWhatsAppClick }) => {
             <div className="bg-white p-6 rounded-xl shadow-lg">
               <MapPin className="h-8 w-8 text-blue-600 mx-auto mb-4" />
               <h3 className="font-semibold text-gray-800 mb-2">Location</h3>
-              <p className="text-gray-600">Lakeside Paradise</p>
+              <p className="text-gray-600">Baharini, Eldoret</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-lg">
