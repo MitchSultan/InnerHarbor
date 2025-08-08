@@ -10,6 +10,7 @@ import ActivitiesSection from './components/ActivitiesSection';
 import Services from './components/Services';
 import AccommodationSection from './components/AccommodationSection';
 import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,22 +49,10 @@ const Index = () => {
         <Services />
         <AccommodationSection />
         <ContactSection onWhatsAppClick={handleWhatsAppContact} />
+        <Footer/>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
-        <div className="container mx-auto px-6 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Waves className="h-6 w-6 text-blue-400" />
-            <span className="text-xl font-semibold">Inner Harbor Resort</span>
-          </div>
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <MapPin className="h-4 w-4 text-gray-400" />
-            <span className="text-gray-400">Inner Harbor Resort, Nature's Haven</span>
-          </div>
-          <p className="text-gray-400">© 2025 Inner Harbor Resort. All rights reserved.<a href='https://mitchel.vercel.app' target='_blank' className="text-gray-400 hover:text-blue-600 transition">Made by Mitch</a></p>
-        </div>
-      </footer>
+     
     </div>
   );
 };
