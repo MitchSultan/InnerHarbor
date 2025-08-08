@@ -62,11 +62,11 @@ const HeroSection = ({ onContactClick }) => {
   <div id="slide3" className="carousel-item relative w-full">
     <img
       src="/images/room2.jpg"
-      className="w-full contain" />
+      className="max-w-full object-cover" />
       <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
         <h1 className="text-4xl text-black font-bold ">
           Quality Accommodations and Living  </h1>
-          <p className='text-2xl text-black  '>Beautiful scenery all round. Join us and enjoy the real nature </p>
+          <p className='text-2xl text-black  '>Our spacious, well-appointed rooms provide the perfect sanctuary after a day of adventure. Comfort, style, and relaxation just for you.</p>
           <button className=' w-32 h-12 bg-black text-amber-50'>Get a Room</button>
       </div>
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
