@@ -77,35 +77,36 @@ const ActivitiesSection = () => {
           Resort Activities
         </h2>
         
-        <div ref={cardsRef} className="grid md:grid-cols-3 gap-8">
-          {activities.map((activity, index) => (
-            <div
-              key={index}
-              className="group bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={activity.image}
-                  alt={activity.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white">
-                  <activity.icon className="h-8 w-8 mb-2" />
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">
-                  {activity.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {activity.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        
+        <div className="carousel carousel-end gap-1 rounded-box">
+  
+  <div className="carousel-item relative max-w-72 md:max-w-96">
+    <div className='absolute bottom-0 left-[5%] md:left-[15%] m-4 w-56 h-12 rounded-sm  bg-amber-50 flex items-center justify-center'>Nature Walks</div>
+    <img src="/images/epic.jpg" alt="Drink" />
+  </div>
+  <div className="carousel-item relative max-w-72 md:max-w-96">
+    <div className='absolute bottom-0 left-[5%] md:left-[15%] m-4 w-56 h-12 rounded-sm  bg-amber-50 flex items-center justify-center'>Events</div>
+    <img src="/images/wedding.jpg" alt="Drink" />
+  </div>
+  <div className="carousel-item relative max-w-72 md:max-w-96">
+    <div className='absolute bottom-0 left-[5%] md:left-[15%] m-4 w-56 h-12 rounded-sm  bg-amber-50 flex items-center justify-center'>Canoes ride</div>
+    <img src="/images/canoe.jpg" alt="Drink" />
+  </div>
+  <div className="carousel-item relative max-w-72 md:max-w-96">
+    <div className='absolute bottom-0 left-[5%] md:left-[15%] m-4 w-56 h-12 rounded-sm  bg-amber-50 flex items-center justify-center'>Accomodations</div>
+    <img src="/images/room2.jpg" alt="Drink" />
+  </div>
+  <div className="carousel-item relative max-w-72 md:max-w-96">
+    <div className='absolute bottom-0 left-[5%] md:left-[15%] m-4 w-56 h-12 rounded-sm  bg-amber-50 flex items-center justify-center'>Kid's Playground</div>
+    <img src="/images/epic.jpg" alt="Drink" />
+  </div>
+  <div className="carousel-item relative max-w-72 md:max-w-96">
+    <div className='absolute bottom-0 left-[5%] md:left-[15%] m-4 w-56 h-12 rounded-sm  bg-amber-50 flex items-center justify-center'>Nature Walks</div>
+    <img src="/images/epic.jpg" alt="Drink" />
+  </div>
+  
+  
+</div>
       </div>
     </section>
   );

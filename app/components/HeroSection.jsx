@@ -27,37 +27,69 @@ const HeroSection = ({ onContactClick }) => {
   }, []);
 
   return (
-    <section ref={heroRef} className=" bg-amber-300 h-screen flex items-center justify-center overflow-hidden bg-[url('/images/bn.jpeg')] bg-cover bg-center relative">
-      {/* Background Image */}
-      
-      
-      {/* Content */}
-      <div ref={textRef} className="relative z-10 text-center text-black px-6 max-w-4xl mx-auto bgimage-[url('/images/bn.jpeg')]">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Inner Harbor Resort
-        </h1>
-        <img></img>
-        <p className="text-xl md:text-2xl mb-4 text-black">
-          Discover tranquility by the lakeside
-        </p>
-        <div className="flex items-center justify-center space-x-2 mb-8">
-          <MapPin className="h-5 w-5 text-blue-300" />
-          <span className="text-lg text-black">Nestled beside crystal-clear waters</span>
-        </div>
-        <div className="flex items-center justify-center space-x-1 mb-8">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-          ))}
-          <span className="ml-2 text-black">Premium Lake Resort Experience</span>
-        </div>
-        <button
-          onClick={onContactClick}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-        >
-          Book Your Stay
-        </button>
+    
+    <div className="carousel w-full h-screen" ref={heroRef}>
+  <div id="slide1" className="carousel-item relative w-full">
+    <img
+      src="/images/epic.jpg"
+      className="w-full contain" />
+      <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
+        <h1 className="text-4xl text-black font-bold ">
+          Welcome to Inner Harbor Resort  </h1>
+          <p className='text-2xl text-black  '>Beautiful scenery all round. Join us and enjoy the real nature </p>
+          <button className=' w-32 h-12 bg-black text-amber-50'>Visit Today</button>
       </div>
-    </section>
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#slide4" className="btn btn-circle">❮</a>
+      <a href="#slide2" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="slide2" className="carousel-item relative w-full ">
+    <img
+      src="/images/canoe.jpg"
+      className="w-full contain" />
+      <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
+        <h1 className="text-4xl text-black font-bold ">
+          Fun Activities for all Ages  </h1>
+          <p className='text-2xl text-black  '>Beautiful scenery all round. Join us and enjoy the real nature </p>
+          <button className=' w-32 h-12 bg-black text-amber-50'>Bring Kids</button>
+      </div>
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#slide1" className="btn btn-circle">❮</a>
+      <a href="#slide3" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="slide3" className="carousel-item relative w-full">
+    <img
+      src="/images/room2.jpg"
+      className="w-full contain" />
+      <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
+        <h1 className="text-4xl text-black font-bold ">
+          Quality Accommodations and Living  </h1>
+          <p className='text-2xl text-black  '>Beautiful scenery all round. Join us and enjoy the real nature </p>
+          <button className=' w-32 h-12 bg-black text-amber-50'>Get a Room</button>
+      </div>
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#slide2" className="btn btn-circle">❮</a>
+      <a href="#slide4" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="slide4" className="carousel-item relative w-full">
+    <img
+      src="/images/wedding.jpg"
+      className="w-full contain" />
+     <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
+        <h1 className="text-2xl md:text-4xl  text-amber-50 font-bold ">
+          Hold your Events here  </h1>
+          <p className='text-xl md:text-2xl text-black  '>Beautiful scenery all round. Join us and enjoy the real nature </p>
+          <button className=' w-32 h-12 bg-black text-amber-50'>Hold Event</button>
+      </div>
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#slide3" className="btn btn-circle">❮</a>
+      <a href="#slide1" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+</div>
   );
 };
 
