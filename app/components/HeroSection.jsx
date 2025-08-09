@@ -62,7 +62,7 @@ const HeroSection = ({ onContactClick }) => {
   <div id="slide3" className="carousel-item relative w-full">
     <img
       src="/images/room2.jpg"
-      className="max-w-full object-contain" />
+      className="w-full " />
       <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
         <h1 className="text-4xl text-black font-bold ">
           Quality Accommodations and Living  </h1>
