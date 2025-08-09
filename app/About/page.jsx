@@ -7,6 +7,7 @@ export default function page() {
   return (
     <div>
         <Navbar/>
+        <Footer/>
     </div>
   )
 }
