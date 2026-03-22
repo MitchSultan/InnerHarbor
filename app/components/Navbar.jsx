@@ -53,8 +53,10 @@ const Navbar = () => {
     <>
       <nav
         ref={navRef}
-        className={`fixed w-full top-0 left-0 z-50 transition-all duration-700 ${
-          scrolled
+        className={`fixed w-full top-0 left-0 transition-all duration-700 ${
+          open ? 'z-[110]' : 'z-50'
+        } ${
+          scrolled && !open
             ? 'bg-parchment/95 backdrop-blur-sm'
             : 'bg-transparent'
         }`}
@@ -67,7 +69,7 @@ const Navbar = () => {
               href="/"
               className="font-display text-xl tracking-wide"
               style={{
-                color: scrolled ? 'var(--ink)' : 'var(--parchment)',
+                color: open ? 'var(--parchment)' : scrolled ? 'var(--ink)' : 'var(--parchment)',
                 transition: 'color 0.7s var(--ease-out-smooth)',
               }}
             >
@@ -103,25 +105,24 @@ const Navbar = () => {
               </a>
             </div>
 
-            {/* Mobile Hamburger */}
+            {/* Mobile Hamburger / Close */}
             <button
               onClick={() => setOpen(!open)}
-              className="md:hidden relative z-[110] w-8 h-8 flex flex-col justify-center items-center gap-1.5"
-              aria-label="Toggle menu"
+              className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center gap-[7px]"
+              aria-label={open ? 'Close menu' : 'Open menu'}
             >
               <span
-                className="block w-6 h-px transition-all duration-500"
+                className="block w-6 h-0.5 rounded-full transition-all duration-500 origin-center"
                 style={{
-                  backgroundColor: open || scrolled ? (open ? 'var(--parchment)' : 'var(--ink)') : 'var(--parchment)',
-                  transform: open ? 'rotate(45deg) translateY(4px)' : 'none',
+                  backgroundColor: open ? 'var(--parchment)' : scrolled ? 'var(--ink)' : 'var(--parchment)',
+                  transform: open ? 'rotate(45deg) translateY(4.5px)' : 'none',
                 }}
               />
               <span
-                className="block w-6 h-px transition-all duration-500"
+                className="block w-6 h-0.5 rounded-full transition-all duration-500 origin-center"
                 style={{
-                  backgroundColor: open || scrolled ? (open ? 'var(--parchment)' : 'var(--ink)') : 'var(--parchment)',
-                  transform: open ? 'rotate(-45deg) translateY(-4px)' : 'none',
-                  opacity: open ? 1 : 1,
+                  backgroundColor: open ? 'var(--parchment)' : scrolled ? 'var(--ink)' : 'var(--parchment)',
+                  transform: open ? 'rotate(-45deg) translateY(-4.5px)' : 'none',
                 }}
               />
             </button>
