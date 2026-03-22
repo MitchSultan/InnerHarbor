@@ -1,95 +1,126 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { MapPin, Star } from 'lucide-react';
 
-const HeroSection = ({ onContactClick }) => {
+const HeroSection = () => {
   const heroRef = useRef(null);
-  const textRef = useRef(null);
   const imageRef = useRef(null);
+  const headlineRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-      
-      tl.fromTo(imageRef.current,
-        { scale: 1.2, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.5, ease: "power2.out" }
-      )
-      .fromTo(textRef.current?.children,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out" },
-        "-=1"
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      // Image: slow scale down reveal
+      tl.fromTo(
+        imageRef.current,
+        { scale: 1.15, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 2 }
       );
+
+      // Headline: slide up with fade
+      tl.fromTo(
+        headlineRef.current,
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2 },
+        '-=1.2'
+      );
+
+      // Subtitle
+      tl.fromTo(
+        subtitleRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1 },
+        '-=0.7'
+      );
+
+      // Scroll indicator
+      tl.fromTo(
+        scrollRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8 },
+        '-=0.3'
+      );
+
+      // Parallax on scroll
+      gsap.to(imageRef.current, {
+        y: 120,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
     }, heroRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    
-    <div className="carousel w-full h-screen" ref={heroRef}>
-  <div id="slide1" className="carousel-item relative w-full">
-    <img
-      src="/images/epic.jpg"
-      className="w-full contain" />
-      <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
-        <h1 className="text-4xl text-black font-bold ">
-          Welcome to Inner Harbor Resort  </h1>
-          <p className='text-2xl text-black  '>Beautiful scenery all round. Join us and enjoy the real nature </p>
-          <button className=' w-32 h-12 bg-black text-amber-50'>Visit Today</button>
+    <section
+      ref={heroRef}
+      id="hero"
+      className="relative w-full h-screen overflow-hidden flex items-end"
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          ref={imageRef}
+          src="/images/field.jpg"
+          alt="Inner Harbor Resort lakeside panorama"
+          className="w-full h-full object-cover"
+          style={{ opacity: 0 }}
+        />
+        {/* Dark gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(26,24,20,0.7) 0%, rgba(26,24,20,0.2) 40%, rgba(26,24,20,0.1) 100%)',
+          }}
+        />
       </div>
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide4" className="btn btn-circle">❮</a>
-      <a href="#slide2" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  <div id="slide2" className="carousel-item relative w-full ">
-    <img
-      src="/images/canoe.jpg"
-      className="w-full contain" />
-      <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
-        <h1 className="text-4xl text-black font-bold ">
-          Fun Activities for all Ages  </h1>
-          <p className='text-2xl text-black  '>Beautiful scenery all round. Join us and enjoy the real nature </p>
-          <button className=' w-32 h-12 bg-black text-amber-50'>Bring Kids</button>
+
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pb-16 md:pb-24">
+        <div className="max-w-3xl">
+          <h1
+            ref={headlineRef}
+            className="font-display text-parchment mb-6"
+            style={{ opacity: 0, lineHeight: 1.1 }}
+          >
+            Where stillness
+            <br />
+            <span className="italic">meets the shore</span>
+          </h1>
+
+          <p
+            ref={subtitleRef}
+            className="text-parchment/70 text-lg md:text-xl font-body max-w-md"
+            style={{ opacity: 0, lineHeight: 1.6 }}
+          >
+            A lakeside retreat near Eldoret, where nature&apos;s calm
+            and home-cooked warmth come together.
+          </p>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div
+          ref={scrollRef}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+          style={{ opacity: 0 }}
+        >
+          <span className="font-body text-[0.65rem] tracking-[0.2em] uppercase text-parchment/50">
+            Scroll
+          </span>
+          <div className="scroll-indicator" />
+        </div>
       </div>
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide1" className="btn btn-circle">❮</a>
-      <a href="#slide3" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  <div id="slide3" className="carousel-item relative w-full">
-    <img
-      src="/images/room2.jpg"
-      className="w-full " />
-      <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
-        <h1 className="text-4xl text-black font-bold ">
-          Quality Accommodations and Living  </h1>
-          <p className='text-2xl text-black  '>Our spacious, well-appointed rooms provide the perfect sanctuary after a day of adventure. Comfort, style, and relaxation just for you.</p>
-          <button className=' w-32 h-12 bg-black text-amber-50'>Get a Room</button>
-      </div>
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide2" className="btn btn-circle">❮</a>
-      <a href="#slide4" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  <div id="slide4" className="carousel-item relative w-full">
-    <img
-      src="/images/wedding.jpg"
-      className="w-full contain" />
-     <div className="flex flex-col justify-end absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 bg-white-50">
-        <h1 className="text-2xl md:text-4xl  text-amber-50 font-bold ">
-          Hold your Events here  </h1>
-          <p className='text-xl md:text-2xl text-black  '>Beautiful scenery all round. Join us and enjoy the real nature </p>
-          <button className=' w-32 h-12 bg-black text-amber-50'>Hold Event</button>
-      </div>
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide3" className="btn btn-circle">❮</a>
-      <a href="#slide1" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-</div>
+    </section>
   );
 };
 

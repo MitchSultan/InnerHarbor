@@ -1,57 +1,118 @@
-import React from 'react'
+'use client';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function About() {
+gsap.registerPlugin(ScrollTrigger);
+
+const About = () => {
+  const sectionRef = useRef(null);
+  const imageRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Image reveal
+      gsap.fromTo(
+        imageRef.current,
+        { clipPath: 'inset(0 100% 0 0)', opacity: 0 },
+        {
+          clipPath: 'inset(0 0% 0 0)',
+          opacity: 1,
+          duration: 1.4,
+          ease: 'power3.inOut',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+          },
+        }
+      );
+
+      // Text elements stagger
+      const textElements = textRef.current?.children;
+      if (textElements) {
+        gsap.fromTo(
+          textElements,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: textRef.current,
+              start: 'top 80%',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div>
-         <div className="bg-white">
-      <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-        <div className="relative isolate overflow-hidden  px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-          <svg
-            viewBox="0 0 1024 1024"
-            aria-hidden="true"
-            className="absolute top-1/2 left-1/2 -z-10 size-256 -translate-y-1/2 mask-[radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
-          >
-            <circle r={512} cx={512} cy={512} fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fillOpacity="0.7" />
-            <defs>
-              <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-                <stop stopColor="#7775D6" />
-                <stop offset={1} stopColor="#E935C1" />
-              </radialGradient>
-            </defs>
-          </svg>
-          <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-            <h2 className="text-3xl font-semibold tracking-tight text-balance text-black sm:text-4xl">
-              We are a Family-owned resort located near Eldoret city.
+    <section ref={sectionRef} id="about" className="section-padding bg-parchment">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Section Label */}
+        <div className="mb-16 md:mb-24">
+          <div className="divider-line mb-8" />
+          <span className="label-caps">Our Story</span>
+        </div>
 
-            </h2>
-            <p className="mt-6 text-lg/8 text-pretty text-gray-800">
-           Inner Harbor resort is  family-owned and provides quality accommodations with a touch of excellent meals. Your kids also have a place to enjoy and go on boat rides while you dine.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-              <a
-                href="#"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Book a stay
-              </a>
-              <a href="#" className="text-sm/6 font-semibold text-black hover:text-gray-100">
-                Learn more
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-          <div className="relative mt-16 h-80 lg:mt-8">
+        {/* Two-column asymmetric layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Image — 7 cols */}
+          <div className="lg:col-span-7 img-reveal" ref={imageRef}>
             <img
-              alt="App screenshot"
               src="/images/face.jpg"
-              width={1824}
-              height={1080}
-              className="absolute top-0 left-0 w-228 max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+              alt="Inner Harbor Resort grounds and lakeside view"
+              className="w-full h-[400px] md:h-[550px] lg:h-[650px] object-cover"
             />
+          </div>
+
+          {/* Text — 5 cols */}
+          <div className="lg:col-span-5 flex flex-col justify-center" ref={textRef}>
+            <h2 className="mb-8">
+              A family retreat,
+              <br />
+              <span className="italic" style={{ color: 'var(--copper)' }}>
+                rooted in nature
+              </span>
+            </h2>
+
+            <p className="mb-6">
+              Tucked along the tranquil waters near Eldoret, Inner Harbor Resort
+              is a family-owned sanctuary where the rhythm of the lake sets
+              the pace. Our doors opened with a simple belief: that rest should
+              feel effortless, and every meal should taste like home.
+            </p>
+
+            <p className="mb-8">
+              Here, mornings begin with birdsong across the water. Afternoons
+              unfold along winding nature paths. And evenings are best spent
+              over a slow dinner, prepared with care and served with warmth.
+              This is a place for families, for couples, for anyone seeking
+              a quieter kind of luxury.
+            </p>
+
+            <div className="flex items-center gap-8">
+              <div>
+                <span className="font-display text-4xl md:text-5xl" style={{ color: 'var(--copper)' }}>
+                  ∞
+                </span>
+              </div>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--stone)', maxWidth: '280px' }}>
+                Family-owned and operated — every detail reflects the personal
+                touch of a home, not a hotel chain.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
+
+export default About;
